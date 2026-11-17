@@ -1,6 +1,4 @@
-/* ============================================================
-   1. PETA DAN BASEMAP
-   ============================================================ */
+
 const map = L.map('map', { zoomControl: true }).setView([3.5952, 98.6722], 12);
 
 /* Splash screen: tampil 1,5 detik, lalu beri Leaflet ruang untuk menghitung ulang kanvasnya. */
@@ -30,9 +28,7 @@ const satelit = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/service
   attribution: 'Imagery &copy; Esri'
 });
 
-/* ============================================================
-   2. WARNA PER KATEGORI
-   ============================================================ */
+
 const kategoriWarna = {
   'Kesehatan':     '#b91c1c',
   'Pendidikan':    '#1d4ed8',
@@ -40,9 +36,7 @@ const kategoriWarna = {
   'Transportasi':  '#7c3aed'
 };
 
-/* ============================================================
-   3. BACA DATA GEOJSON, BUAT MARKER, POPUP, DAN LAYER PER KATEGORI
-   ============================================================ */
+
 const grup = {};
 const jumlah = {};
 Object.keys(kategoriWarna).forEach(function (k) {
@@ -84,9 +78,7 @@ if (semuaFitur.length > 0) {
   map.fitBounds(geoLayer.getBounds().pad(0.1));
 }
 
-/* ============================================================
-   4. LAYER CONTROL: 3 basemap + layer tematik per kategori
-   ============================================================ */
+
 const basemaps = {
   'OpenStreetMap': osm,
   'CARTO Terang': terang,
@@ -102,9 +94,7 @@ L.control.layers(basemaps, overlays, {
   collapsed: window.innerWidth < 600
 }).addTo(map);
 
-/* ============================================================
-   5. SKALA DAN LEGENDA
-   ============================================================ */
+
 L.control.scale({ imperial: false }).addTo(map);
 
 const legenda = L.control({ position: 'bottomright' });
@@ -121,9 +111,7 @@ legenda.onAdd = function () {
 };
 legenda.addTo(map);
 
-/* ============================================================
-   6. MODE INTERAKSI: LIHAT DETAIL, UKUR JARAK, UKUR LUAS
-   ============================================================ */
+
 const info = document.getElementById('info');
 const pesanMode = {
   lihat: 'Klik titik di peta untuk melihat detail.',
@@ -222,9 +210,7 @@ map.on('click', function (e) {
   }
 });
 
-/* ============================================================
-   7. LOKASI SAYA DAN FASILITAS TERDEKAT
-   ============================================================ */
+
 const userLayer = L.layerGroup().addTo(map);
 
 document.getElementById('btnLokasi').addEventListener('click', function () {
@@ -274,9 +260,7 @@ map.on('locationerror', function () {
   info.textContent = 'Lokasi tidak dapat diakses. Izinkan akses lokasi pada browser, lalu coba lagi.';
 });
 
-/* ============================================================
-   8. BERSIHKAN HASIL UKUR DAN LOKASI
-   ============================================================ */
+
 document.getElementById('btnBersihkan').addEventListener('click', function () {
   titikUkur = [];
   ukurLayer.clearLayers();
