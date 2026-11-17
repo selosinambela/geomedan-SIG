@@ -1,104 +1,64 @@
 # GeoMedan SIG
 
-Peta web interaktif untuk mengeksplorasi 15 fasilitas publik dan ruang terbuka di Kota Medan. Proyek ini dibuat sebagai penerapan SIG Web berbasis Leaflet, dengan fokus pada akses informasi fasilitas, interaksi peta, dan keterkaitannya dengan SDG 9 serta SDG 11.
+**[Buka peta interaktif](https://selosinambela.github.io/geomedan-SIG/)**
 
-## Tujuan
+GeoMedan SIG adalah peta web interaktif yang menampilkan 15 fasilitas publik dan ruang terbuka di Kota Medan. Peta ini dirancang untuk memudahkan pengunjung mengeksplorasi sebaran lokasi, membaca informasi fasilitas, dan melakukan analisis spasial sederhana.
 
-Informasi lokasi fasilitas publik sering tersebar dan sulit dibandingkan secara spasial. Peta ini menyajikan lokasi fasilitas kesehatan, pendidikan, transportasi, dan ruang terbuka dalam satu antarmuka agar pengguna dapat melihat persebaran, memeriksa atribut, mengukur area atau jarak, serta menemukan fasilitas aktif yang paling dekat dari lokasinya.
+## Mengapa peta ini dibuat?
 
-## Kesesuaian dengan SDG
+Informasi fasilitas publik sering tersebar di berbagai sumber dan sulit dibandingkan berdasarkan lokasi. GeoMedan SIG menyatukan fasilitas kesehatan, pendidikan, transportasi, dan ruang terbuka dalam satu peta yang mudah digunakan.
 
-- **SDG 9 — Industri, Inovasi, dan Infrastruktur:** memanfaatkan peta web dan data spasial terbuka sebagai media informasi digital yang ringan dan mudah diakses.
-- **SDG 11 — Kota dan Permukiman Berkelanjutan:** membantu visualisasi akses terhadap layanan kesehatan, pendidikan, transportasi, dan ruang terbuka kota.
+Peta ini mendukung:
 
-## Fitur
+- **SDG 9 — Industri, Inovasi, dan Infrastruktur**, melalui pemanfaatan peta web dan data spasial terbuka.
+- **SDG 11 — Kota dan Permukiman Berkelanjutan**, melalui visualisasi akses terhadap layanan dan ruang terbuka kota.
 
-| Area | Implementasi |
+## Yang dapat dilakukan
+
+| Fitur | Kegunaan |
 | --- | --- |
-| Basemap | OpenStreetMap, CARTO Terang, dan Esri World Imagery |
-| Data tematik | 15 titik GeoJSON: kesehatan (4), pendidikan (4), ruang terbuka (4), dan transportasi (3) |
-| Informasi fitur | Marker, tooltip nama, dan popup berisi kategori, alamat, serta sumber data |
-| Kontrol peta | Layer control, legenda, skala, dan tombol zoom Leaflet |
-| Analisis sederhana | Pengukuran jarak garis lurus dan luas area menggunakan titik klik pengguna |
-| Lokasi pengguna | Geolokasi berbasis izin browser dan pencarian fasilitas aktif terdekat |
-| Pengalaman pengguna | Splash screen ringkas, tema editorial responsif, fokus keyboard, dan layout aman pada lebar 375 px |
+| Pilih basemap | Bandingkan konteks lokasi dengan OpenStreetMap, CARTO Terang, atau citra Esri. |
+| Tampilkan kategori | Aktifkan atau sembunyikan fasilitas kesehatan, pendidikan, ruang terbuka, dan transportasi. |
+| Baca detail lokasi | Klik titik pada peta untuk melihat nama, kategori, alamat, dan sumber data. |
+| Ukur jarak | Hitung total jarak garis lurus dari beberapa titik yang diklik. |
+| Ukur luas | Perkirakan luas area dari sedikitnya tiga titik yang diklik. |
+| Cari fasilitas terdekat | Gunakan lokasi perangkat untuk menemukan fasilitas yang paling dekat dari kategori yang sedang aktif. |
 
-## Kesesuaian terhadap rubrik proyek
+## Cara menggunakan peta
 
-| Kriteria | Hasil pada proyek |
-| --- | --- |
-| Peta tampil dan stabil | Leaflet 1.9.4 memuat peta dasar dari penyedia tile yang dipilih pengguna. |
-| Data spasial terikat | Semua fasilitas berada di `data.js` sebagai GeoJSON dan memiliki popup informatif. |
-| Interaktivitas | Tersedia pengaturan layer, event klik, pengukuran jarak/luas, dan geolokasi. |
-| Desain dan aksesibilitas | Kontras warna, legenda, atribusi, label ARIA, status live, serta tampilan responsif disediakan. |
-| Dokumentasi dan publikasi | README ini menjelaskan penggunaan, sumber data, dan proses deploy GitHub Pages. |
+1. Gunakan **Layer Control** di kanan atas untuk memilih basemap atau mengatur kategori fasilitas.
+2. Klik salah satu titik untuk membuka informasi fasilitas.
+3. Pilih **Ukur jarak** atau **Ukur luas**, lalu klik peta sesuai kebutuhan.
+4. Pilih **Lokasi saya dan terdekat** dan berikan izin lokasi pada browser untuk melihat fasilitas terdekat.
+5. Pilih **Bersihkan** untuk menghapus hasil pengukuran dan lokasi sementara.
 
-## Struktur proyek
+## Cakupan data
 
-```text
-geomedan-SIG/
-├── index.html     # Struktur halaman dan dependensi eksternal
-├── style.css      # Tema editorial, responsivitas, dan komponen Leaflet
-├── script.js      # Peta, layer, popup, pengukuran, dan geolokasi
-├── data.js        # Salinan GeoJSON siap-pakai untuk browser tanpa server
-├── data/
-│   └── fasilitas-medan.geojson  # Data spasial mandiri berformat GeoJSON
-└── README.md      # Dokumentasi proyek
-```
+Data mencakup 15 fasilitas pilihan di Kota Medan:
 
-## Menjalankan secara lokal
+- 4 fasilitas kesehatan
+- 4 fasilitas pendidikan
+- 4 ruang terbuka
+- 3 fasilitas transportasi
 
-1. Clone repositori ini atau unduh seluruh berkasnya.
-2. Buka `index.html` melalui browser modern. Koneksi internet diperlukan untuk font, Leaflet, dan tile basemap.
-3. Untuk menguji geolokasi secara lebih konsisten, jalankan melalui server lokal, misalnya ekstensi Live Server di VS Code.
+Data spasial tersedia dalam [GeoJSON](./data/fasilitas-medan.geojson). Koordinat memakai urutan standar GeoJSON: `[longitude, latitude]`.
 
-## Cara menggunakan
+## Catatan penggunaan
 
-1. Pilih basemap atau aktif/nonaktifkan kategori melalui **Layer Control** di kanan atas peta.
-2. Klik sebuah titik untuk membaca detail fasilitas pada popup.
-3. Pilih **Ukur jarak** lalu klik beberapa lokasi pada peta untuk memperoleh total jarak garis lurus.
-4. Pilih **Ukur luas** lalu klik sedikitnya tiga titik untuk memperoleh estimasi luas area.
-5. Pilih **Lokasi saya dan terdekat**, izinkan akses lokasi pada browser, lalu peta akan menampilkan fasilitas aktif yang paling dekat.
-6. Gunakan **Bersihkan** untuk menghapus hasil pengukuran dan lokasi sementara.
+- Data ini ditujukan untuk eksplorasi informasi, bukan inventaris resmi seluruh fasilitas di Kota Medan.
+- Jarak yang dihitung adalah garis lurus, bukan rute jalan atau waktu tempuh.
+- Luas area merupakan perkiraan geodesik berdasarkan titik yang dipilih pengguna.
+- Akurasi lokasi pengguna bergantung pada perangkat, browser, dan izin yang diberikan.
 
-## Data dan batasan
+## Privasi
 
-- `data/fasilitas-medan.geojson` adalah berkas data spasial mandiri berformat standar GeoJSON. `data.js` memuat salinan data yang sama agar aplikasi tetap dapat dibuka langsung tanpa permintaan `fetch` atau server lokal.
-- Data memuat 15 fasilitas pilihan di Kota Medan, bukan inventaris lengkap seluruh fasilitas kota.
-- Koordinat disimpan dalam format GeoJSON `[longitude, latitude]` dan setiap fitur mencantumkan sumber serta tanggal pengambilan pada propertinya.
-- Jarak yang ditampilkan adalah garis lurus, bukan estimasi rute jalan atau waktu tempuh.
-- Hasil luas adalah perhitungan geodesik sederhana dari titik klik; bukan ukuran legal atau survei lapangan.
-- Ketelitian lokasi bergantung pada perangkat, browser, dan izin pengguna.
-
-## Privasi dan keamanan
-
-Tombol geolokasi tidak aktif otomatis: browser hanya diminta mengakses lokasi setelah pengguna menekan **Lokasi saya dan terdekat**. Lokasi digunakan di dalam sesi peta untuk visualisasi dan pencarian terdekat, tidak dikirim ke server aplikasi ini, serta tidak disimpan oleh kode proyek.
+Lokasi perangkat hanya diminta setelah tombol **Lokasi saya dan terdekat** dipilih. Lokasi tersebut digunakan sementara dalam sesi peta untuk mencari fasilitas terdekat; aplikasi ini tidak menyimpannya.
 
 ## Sumber dan atribusi
 
-- Data fasilitas: Google Maps dan OpenStreetMap, sebagaimana dicatat pada setiap fitur di `data.js`.
+- Data fasilitas: Google Maps dan OpenStreetMap; sumber serta tanggal pengambilan juga dicatat pada atribut setiap fitur.
 - Basemap: [OpenStreetMap](https://www.openstreetmap.org/copyright), [CARTO](https://carto.com/attributions), dan Esri World Imagery.
-- Library peta: [Leaflet 1.9.4](https://leafletjs.com/).
-
-## Deploy ke GitHub Pages
-
-Setelah berkas diunggah ke branch `main`:
-
-1. Buka **Settings** → **Pages** pada repositori GitHub.
-2. Pada **Build and deployment**, pilih **Deploy from a branch**.
-3. Pilih branch `main` dan folder `/(root)`, lalu simpan.
-4. Setelah proses deploy selesai, peta akan tersedia di:
-
-   `https://selosinambela.github.io/geomedan-SIG/`
-
-## Pengujian singkat
-
-- Pastikan tiga basemap dapat dipilih.
-- Pastikan tiap kategori pada Layer Control dapat diaktifkan dan dinonaktifkan.
-- Klik beberapa marker untuk memeriksa popup dan tooltip.
-- Uji mode jarak, luas, dan tombol bersihkan.
-- Uji geolokasi pada halaman HTTPS/GitHub Pages dan berikan izin browser.
-- Periksa tampilan pada lebar 375 px.
+- Peta dibangun dengan [Leaflet 1.9.4](https://leafletjs.com/).
 
 ## Pembuat
 
