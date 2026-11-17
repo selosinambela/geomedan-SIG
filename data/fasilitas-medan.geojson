@@ -1,0 +1,156 @@
+{
+  "type": "FeatureCollection",
+  "name": "fasilitas-medan",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "RSUP H. Adam Malik",
+        "kategori": "Kesehatan",
+        "alamat": "Jl. Bunga Lau No. 17, Kemenangan Tani, Kec. Medan Tuntungan",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.6095, 3.5186] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "RSUD Dr. Pirngadi Kota Medan",
+        "kategori": "Kesehatan",
+        "alamat": "Jl. Prof. H. M. Yamin No. 47, Perintis, Kec. Medan Timur",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.6873, 3.5993] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "RS Columbia Asia Medan",
+        "kategori": "Kesehatan",
+        "alamat": "Jl. Listrik No. 2A, Petisah Tengah, Kec. Medan Petisah",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.6725, 3.5833] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Puskesmas Padang Bulan",
+        "kategori": "Kesehatan",
+        "alamat": "Jl. Jamin Ginting No. 32, Padang Bulan, Kec. Medan Baru",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.6552, 3.5623] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Universitas Sumatera Utara (USU)",
+        "kategori": "Pendidikan",
+        "alamat": "Jl. Dr. T. Mansur No. 9, Padang Bulan, Kec. Medan Baru",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.6563, 3.5653] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Politeknik Negeri Medan (Polmed)",
+        "kategori": "Pendidikan",
+        "alamat": "Jl. Almamater No. 1, Padang Bulan, Kec. Medan Baru",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.6548, 3.5638] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "SMA Negeri 1 Medan",
+        "kategori": "Pendidikan",
+        "alamat": "Jl. Teuku Cik Ditiro No. 1, Madras Hulu, Kec. Medan Polonia",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.6723, 3.5847] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Universitas Negeri Medan (UNIMED)",
+        "kategori": "Pendidikan",
+        "alamat": "Jl. Willem Iskandar / Pasar V, Medan Estate",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.7165, 3.6083] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Lapangan Merdeka Medan",
+        "kategori": "Ruang Terbuka",
+        "alamat": "Jl. Pulau Pinang, Kesawan, Kec. Medan Barat",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.6773, 3.5914] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Taman Ahmad Yani",
+        "kategori": "Ruang Terbuka",
+        "alamat": "Jl. Imam Bonjol, Jati, Kec. Medan Maimun",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.6766, 3.5776] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Taman Cadika Pramuka",
+        "kategori": "Ruang Terbuka",
+        "alamat": "Jl. Karya Wisata, Pangkalan Masyhur, Kec. Medan Johor",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.6612, 3.5413] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Istana Maimun",
+        "kategori": "Ruang Terbuka",
+        "alamat": "Jl. Brigjend Katamso No. 66, Aur, Kec. Medan Maimun",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.6838, 3.5752] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Stasiun Kereta Api Medan",
+        "kategori": "Transportasi",
+        "alamat": "Jl. Stasiun Kereta Api No. 1, Kesawan, Kec. Medan Barat",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.6798, 3.5912] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Terminal Terpadu Amplas",
+        "kategori": "Transportasi",
+        "alamat": "Jl. Panglima Denai, Timbang Deli, Kec. Medan Amplas",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.7158, 3.5385] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Terminal Pinang Baris",
+        "kategori": "Transportasi",
+        "alamat": "Jl. TB Simatupang, Lalang, Kec. Medan Sunggal",
+        "sumber": "Google Maps & OpenStreetMap (17 November 2026)"
+      },
+      "geometry": { "type": "Point", "coordinates": [98.5993, 3.5867] }
+    }
+  ]
+}

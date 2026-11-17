@@ -40,7 +40,9 @@ geomedan-SIG/
 ├── index.html     # Struktur halaman dan dependensi eksternal
 ├── style.css      # Tema editorial, responsivitas, dan komponen Leaflet
 ├── script.js      # Peta, layer, popup, pengukuran, dan geolokasi
-├── data.js        # Koleksi fitur GeoJSON fasilitas publik
+├── data.js        # Salinan GeoJSON siap-pakai untuk browser tanpa server
+├── data/
+│   └── fasilitas-medan.geojson  # Data spasial mandiri berformat GeoJSON
 └── README.md      # Dokumentasi proyek
 ```
 
@@ -61,6 +63,7 @@ geomedan-SIG/
 
 ## Data dan batasan
 
+- `data/fasilitas-medan.geojson` adalah berkas data spasial mandiri berformat standar GeoJSON. `data.js` memuat salinan data yang sama agar aplikasi tetap dapat dibuka langsung tanpa permintaan `fetch` atau server lokal.
 - Data memuat 15 fasilitas pilihan di Kota Medan, bukan inventaris lengkap seluruh fasilitas kota.
 - Koordinat disimpan dalam format GeoJSON `[longitude, latitude]` dan setiap fitur mencantumkan sumber serta tanggal pengambilan pada propertinya.
 - Jarak yang ditampilkan adalah garis lurus, bukan estimasi rute jalan atau waktu tempuh.
