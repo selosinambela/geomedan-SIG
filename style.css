@@ -1,0 +1,205 @@
+:root {
+  --paper: #F5EFEB;
+  --surface: #FAF7F5;
+  --surface-muted: #EFE7E1;
+  --line: #D6CBC2;
+  --slate: #527988;
+  --slate-dark: #3E5D69;
+  --ink: #2C3E46;
+  --muted: #5F747E;
+  --shadow: 0 8px 24px rgba(62, 93, 105, 0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+body {
+  min-width: 0;
+  overflow-x: hidden;
+  font-family: "Montserrat", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-page {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--paper);
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s linear 0.6s;
+}
+
+.landing-page.is-leaving { opacity: 0; transform: translateY(-14px); visibility: hidden; }
+.landing-page[hidden] { display: none; }
+
+.landing-page__content {
+  width: min(760px, 100%);
+  text-align: center;
+  animation: splash-enter 0.8s ease both;
+}
+
+.landing-page__eyebrow,
+.landing-page__author {
+  color: var(--muted);
+  font-size: clamp(0.62rem, 1.8vw, 0.76rem);
+  font-weight: 600;
+  line-height: 1.7;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.landing-page h2 {
+  margin: 16px auto;
+  color: var(--slate);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2rem, 5.3vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.landing-page__divider { width: min(120px, 30%); height: 1px; margin: 20px auto; background: var(--line); }
+
+.landing-page__progress {
+  width: min(280px, 82%);
+  height: 3px;
+  margin: 28px auto 0;
+  overflow: hidden;
+  border-radius: 99px;
+  background: var(--surface-muted);
+}
+
+.landing-page__progress span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--slate);
+  animation: splash-progress 1.5s linear forwards;
+}
+
+header {
+  position: relative;
+  z-index: 1;
+  padding: 10px clamp(14px, 3vw, 32px) 9px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+header h1 {
+  color: var(--slate);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1rem, 2.5vw, 1.75rem);
+  font-weight: 675;
+  line-height: 1;
+}
+
+header p {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: clamp(0.68rem, 1.45vw, 0.8rem);
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+main { flex: 1; position: relative; min-height: 320px; }
+#map { position: absolute; inset: 0; }
+
+.panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 12px;
+  padding: 6px clamp(10px, 2vw, 24px);
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -6px 16px rgba(62, 93, 105, 0.05);
+  font-size: 0.82rem;
+}
+
+.grup { display: flex; flex-wrap: wrap; gap: 7px; }
+
+button {
+  min-height: 32px;
+  padding: 6px 11px;
+  border: 1px solid var(--slate);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--slate);
+  cursor: pointer;
+  font: 600 0.68rem/1.2 "Montserrat", Arial, sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover { background: var(--surface-muted); border-color: var(--slate-dark); color: var(--slate-dark); transform: translateY(-1px); }
+button.aktif { background: var(--slate); color: #fff; }
+button.aktif:hover { background: var(--slate-dark); color: #fff; }
+button:focus-visible { outline: 3px solid rgba(82, 121, 136, 0.35); outline-offset: 2px; }
+
+.panel #info { flex: 1 1 280px; color: var(--muted); font-size: 0.76rem; line-height: 1.45; }
+
+footer {
+  padding: 5px clamp(10px, 2vw, 24px);
+  background: var(--surface-muted);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.67rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+/* Elemen Leaflet mengikuti bahasa visual antarmuka. */
+.legend,
+.leaflet-control-layers {
+  background: rgba(250, 247, 245, 0.96) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--shadow) !important;
+  color: var(--ink);
+  font: 500 0.75rem/1.75 "Montserrat", Arial, sans-serif;
+}
+
+.legend { padding: 10px 13px; }
+.legend b { color: var(--slate); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.legend i { display: inline-block; width: 11px; height: 11px; margin-right: 7px; border: 1px solid #fff; border-radius: 50%; box-shadow: 0 0 0 1px rgba(44, 62, 70, 0.28); }
+.legend small { color: var(--muted); font-size: 0.65rem; }
+
+.leaflet-control-layers { padding: 8px 10px; }
+.leaflet-control-layers-toggle { width: 36px; height: 36px; background-size: 18px 18px; }
+.leaflet-control-layers label { color: var(--ink); }
+.leaflet-bar { border: 1px solid var(--line) !important; border-radius: 10px !important; box-shadow: var(--shadow); overflow: hidden; }
+.leaflet-bar a { width: 34px; height: 34px; border-bottom-color: var(--line) !important; background: var(--surface); color: var(--slate); line-height: 32px; transition: background-color 0.2s ease; }
+.leaflet-bar a:hover { background: var(--surface-muted); color: var(--slate-dark); }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+.leaflet-popup-content-wrapper { border: 1px solid var(--line); border-radius: 12px; }
+.leaflet-popup-content { margin: 14px 16px; font: 400 0.78rem/1.65 "Montserrat", Arial, sans-serif; }
+.leaflet-popup-content b { display: block; margin-bottom: 4px; color: var(--slate); font-family: "Playfair Display", Georgia, serif; font-size: 1.08rem; line-height: 1.3; }
+.leaflet-popup-content small { color: var(--muted); }
+.leaflet-container a { color: var(--slate-dark); }
+.leaflet-control-attribution { background: rgba(250, 247, 245, 0.82) !important; color: var(--muted); font: 400 0.61rem "Montserrat", Arial, sans-serif; }
+
+@keyframes splash-enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes splash-progress { to { width: 100%; } }
+
+@media (max-width: 480px) {
+  header { padding-top: 9px; padding-bottom: 8px; }
+  header p { font-size: 0.61rem; letter-spacing: 0.07em; }
+  .panel { gap: 9px; }
+  .grup { width: 100%; }
+  .grup button { flex: 1 1 0; padding-inline: 8px; font-size: 0.61rem; }
+  .panel #info { flex-basis: 100%; font-size: 0.71rem; }
+  .legend { max-width: calc(100vw - 70px); }
+  .landing-page h2 { font-size: clamp(1.85rem, 9vw, 2.45rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

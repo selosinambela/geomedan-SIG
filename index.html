@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Peta web interaktif fasilitas publik dan ruang terbuka Kota Medan, mendukung SDG 9 dan SDG 11.">
+  <title>Peta Fasilitas Publik Kota Medan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section id="landingPage" class="landing-page" aria-label="Pembuka peta">
+    <div class="landing-page__content">
+      <p class="landing-page__eyebrow">PENGEMBANGAN SIG WEB · SDG 9 &amp; SDG 11</p>
+      <h2>Peta Fasilitas Publik Kota Medan</h2>
+      <div class="landing-page__divider" aria-hidden="true"></div>
+      <p class="landing-page__author">Vaidon Shello Sinambela · NIM 241712052</p>
+      <div class="landing-page__progress" aria-hidden="true"><span></span></div>
+    </div>
+  </section>
+
+  <header>
+    <h1>Peta Fasilitas Publik dan Ruang Terbuka Kota Medan</h1>
+    <p>Mendukung SDG 11 (kota berkelanjutan) dan SDG 9 (infrastruktur dan inovasi digital)</p>
+  </header>
+
+  <main>
+    <div id="map" role="region" aria-label="Peta interaktif fasilitas publik Kota Medan"></div>
+  </main>
+
+  <section class="panel" aria-label="Kontrol peta">
+    <div class="grup" role="group" aria-label="Mode interaksi peta">
+      <button type="button" data-mode="lihat" class="aktif" aria-pressed="true">Lihat detail</button>
+      <button type="button" data-mode="jarak" aria-pressed="false">Ukur jarak</button>
+      <button type="button" data-mode="luas" aria-pressed="false">Ukur luas</button>
+    </div>
+    <div class="grup">
+      <button type="button" id="btnLokasi">Lokasi saya dan terdekat</button>
+      <button type="button" id="btnBersihkan">Bersihkan</button>
+    </div>
+    <p id="info" role="status" aria-live="polite">Klik titik di peta untuk melihat detail.</p>
+  </section>
+
+  <footer>
+    Data: 15 Fasilitas Publik Kota Medan (Google Maps &amp; OpenStreetMap)<br>
+    Basemap: OpenStreetMap, CARTO, Esri · Dibuat oleh Vaidon Shello Sinambela · 241712052 · Pengembangan SIG Web
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

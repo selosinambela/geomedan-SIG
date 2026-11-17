@@ -1,0 +1,9 @@
+# OS dan editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Konfigurasi atau rahasia lokal
+.env
+.env.*
+!.env.example
