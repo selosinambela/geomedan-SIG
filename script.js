@@ -1,5 +1,5 @@
 
-const map = L.map('map', { zoomControl: true }).setView([3.5952, 98.6722], 12);
+const map = L.map('map', { zoomControl: false }).setView([3.5952, 98.6722], 12);
 
 /* Splash screen: tampil 1,5 detik, lalu beri Leaflet ruang untuk menghitung ulang kanvasnya. */
 const landingPage = document.getElementById('landingPage');
@@ -45,6 +45,13 @@ Object.keys(kategoriWarna).forEach(function (k) {
 });
 
 const semuaFitur = [];
+const filterAktif = new Set(Object.keys(kategoriWarna));
+let teksPencarian = '';
+
+function tautanSumber(p) {
+  const match = p.sumber.match(/(node|way|relation)\/\d+/);
+  return match ? 'https://www.openstreetmap.org/' + match[0] : 'https://www.openstreetmap.org/search?query=' + encodeURIComponent(p.nama + ' Medan');
+}
 
 const geoLayer = L.geoJSON(dataFasilitas, {
   pointToLayer: function (f, latlng) {
@@ -62,7 +69,8 @@ const geoLayer = L.geoJSON(dataFasilitas, {
       '<b>' + p.nama + '</b><br>' +
       'Kategori: ' + p.kategori + '<br>' +
       'Alamat: ' + p.alamat + '<br>' +
-      '<small>Sumber: ' + p.sumber + '</small>'
+      '<small>Sumber: ' + p.sumber + '</small><br>' +
+      '<a href="' + tautanSumber(p) + '" target="_blank" rel="noopener">Lihat di OpenStreetMap ↗</a>'
     );
     layer.bindTooltip(p.nama, { direction: 'top', offset: [0, -8] });
 
@@ -90,27 +98,82 @@ Object.keys(grup).forEach(function (k) {
   overlays[k + ' (' + jumlah[k] + ')'] = grup[k];
 });
 
+L.control.zoom({ position: 'topright' }).addTo(map);
+
 L.control.layers(basemaps, overlays, {
   collapsed: window.innerWidth < 600
 }).addTo(map);
 
 
-L.control.scale({ imperial: false }).addTo(map);
+L.control.scale({ imperial: false, position: 'bottomright' }).addTo(map);
 
-const legenda = L.control({ position: 'bottomright' });
-legenda.onAdd = function () {
-  const div = L.DomUtil.create('div', 'legend');
-  let html = '<b>Legenda</b><br>';
-  Object.keys(kategoriWarna).forEach(function (k) {
-    html += '<span><i style="background:' + kategoriWarna[k] + '"></i>' + k + '</span><br>';
+/* Sidebar: filter kategori, pencarian, statistik, dan daftar fasilitas. */
+const statVisible = document.getElementById('statVisible');
+const statCategories = document.getElementById('statCategories');
+const statTotal = document.getElementById('statTotal');
+const categoryFilters = document.getElementById('categoryFilters');
+const facilityList = document.getElementById('facilityList');
+const resultLabel = document.getElementById('resultLabel');
+const searchInput = document.getElementById('searchInput');
+
+function cocok(layer) {
+  const p = layer.feature.properties;
+  const q = teksPencarian.toLocaleLowerCase('id-ID');
+  return filterAktif.has(p.kategori) && (!q || (p.nama + ' ' + p.alamat).toLocaleLowerCase('id-ID').includes(q));
+}
+
+function renderFilters() {
+  categoryFilters.innerHTML = Object.keys(kategoriWarna).map(function (kategori) {
+    const dipilih = filterAktif.has(kategori);
+    return '<label class="filter-chip' + (dipilih ? ' is-selected' : '') + '">' +
+      '<input type="checkbox" value="' + kategori + '" ' + (dipilih ? 'checked' : '') + '>' +
+      '<span class="filter-dot" style="background:' + kategoriWarna[kategori] + '"></span>' +
+      '<span>' + kategori + '</span><em>' + jumlah[kategori] + '</em></label>';
+  }).join('');
+  categoryFilters.querySelectorAll('input').forEach(function (input) {
+    input.addEventListener('change', function () {
+      if (input.checked) filterAktif.add(input.value); else filterAktif.delete(input.value);
+      renderFilters();
+      applyFilters();
+    });
   });
-  html += '<small>Lihat README untuk sumber data</small>';
-  div.innerHTML = html;
-  L.DomEvent.disableClickPropagation(div);
-  return div;
-};
-legenda.addTo(map);
+}
 
+function applyFilters() {
+  const hasil = semuaFitur.filter(cocok);
+  semuaFitur.forEach(function (layer) {
+    const tampil = cocok(layer);
+    if (tampil) grup[layer.feature.properties.kategori].addLayer(layer);
+    else grup[layer.feature.properties.kategori].removeLayer(layer);
+  });
+  statVisible.textContent = hasil.length;
+  statCategories.textContent = new Set(hasil.map(function (l) { return l.feature.properties.kategori; })).size;
+  statTotal.textContent = semuaFitur.length;
+  resultLabel.textContent = hasil.length + ' hasil';
+  facilityList.innerHTML = hasil.length ? hasil.map(function (layer) {
+    const p = layer.feature.properties;
+    return '<button type="button" class="facility-item" data-facility-name="' + encodeURIComponent(p.nama) + '">' +
+      '<span class="facility-icon" style="background:' + kategoriWarna[p.kategori] + '">' + (p.kategori === 'Kesehatan' ? '✚' : p.kategori === 'Pendidikan' ? '⌂' : p.kategori === 'Transportasi' ? '↗' : '✦') + '</span>' +
+      '<span class="facility-copy"><strong>' + p.nama + '</strong><small>' + p.kategori + ' · ' + p.alamat + '</small></span><span class="facility-arrow">›</span></button>';
+  }).join('') : '<p class="empty-state">Tidak ada fasilitas yang cocok. Coba ubah kata kunci atau kategori.</p>';
+  facilityList.querySelectorAll('[data-facility-name]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      const target = semuaFitur.find(function (layer) { return layer.feature.properties.nama === decodeURIComponent(button.dataset.facilityName); });
+      if (target) { map.setView(target.getLatLng(), Math.max(map.getZoom(), 15), { animate: true }); target.openPopup(); }
+    });
+  });
+}
+
+renderFilters();
+applyFilters();
+searchInput.addEventListener('input', function () { teksPencarian = searchInput.value.trim(); applyFilters(); });
+document.getElementById('btnClearSearch').addEventListener('click', function () { searchInput.value = ''; teksPencarian = ''; applyFilters(); searchInput.focus(); });
+document.getElementById('btnReset').addEventListener('click', function () { filterAktif.clear(); Object.keys(kategoriWarna).forEach(function (k) { filterAktif.add(k); }); teksPencarian = ''; searchInput.value = ''; renderFilters(); applyFilters(); });
+
+const sidebar = document.getElementById('sidebar');
+function setSidebar(open) { sidebar.classList.toggle('is-closed', !open); document.getElementById('btnSidebar').setAttribute('aria-expanded', open ? 'true' : 'false'); window.setTimeout(function () { map.invalidateSize(); }, 260); }
+document.getElementById('btnSidebar').addEventListener('click', function () { setSidebar(sidebar.classList.contains('is-closed')); });
+document.getElementById('btnCloseSidebar').addEventListener('click', function () { setSidebar(false); });
 
 const info = document.getElementById('info');
 const pesanMode = {

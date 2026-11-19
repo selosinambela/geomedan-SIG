@@ -7,16 +7,16 @@
 const dataFasilitas = {
   type: "FeatureCollection",
   features: [
-    // --- KATEGORI: KESEHATAN (4) ---
+    // --- KATEGORI: KESEHATAN (6) ---
     {
       type: "Feature",
       properties: {
         nama: "RSUP H. Adam Malik",
         kategori: "Kesehatan",
         alamat: "Jl. Bunga Lau No. 17, Kemenangan Tani, Kec. Medan Tuntungan",
-        sumber: "Google Maps & OpenStreetMap (17 November 2026)"
+        sumber: "OpenStreetMap way/275295457 (19 November 2026)"
       },
-      geometry: { type: "Point", coordinates: [98.6095, 3.5186] }
+      geometry: { type: "Point", coordinates: [98.6085337, 3.5182345] }
     },
     {
       type: "Feature",
@@ -24,9 +24,9 @@ const dataFasilitas = {
         nama: "RSUD Dr. Pirngadi Kota Medan",
         kategori: "Kesehatan",
         alamat: "Jl. Prof. H. M. Yamin No. 47, Perintis, Kec. Medan Timur",
-        sumber: "Google Maps & OpenStreetMap (17 November 2026)"
+        sumber: "OpenStreetMap way/326373079 (19 November 2026)"
       },
-      geometry: { type: "Point", coordinates: [98.6873, 3.5993] }
+      geometry: { type: "Point", coordinates: [98.6879457, 3.5974932] }
     },
     {
       type: "Feature",
@@ -34,7 +34,7 @@ const dataFasilitas = {
         nama: "RS Columbia Asia Medan",
         kategori: "Kesehatan",
         alamat: "Jl. Listrik No. 2A, Petisah Tengah, Kec. Medan Petisah",
-        sumber: "Google Maps & OpenStreetMap (17 November 2026)"
+        sumber: "OpenStreetMap way/428002227 (19 November 2026)"
       },
       geometry: { type: "Point", coordinates: [98.6725, 3.5833] }
     },
@@ -48,8 +48,28 @@ const dataFasilitas = {
       },
       geometry: { type: "Point", coordinates: [98.6552, 3.5623] }
     },
+    {
+      type: "Feature",
+      properties: {
+        nama: "RS Santa Elisabeth Medan",
+        kategori: "Kesehatan",
+        alamat: "Jl. H. Misbah No. 7, Jati, Kec. Medan Maimun",
+        sumber: "Wikipedia: Rumah Sakit Santa Elisabeth Medan (koordinat); alamat dari profil RS (19 November 2026)"
+      },
+      geometry: { type: "Point", coordinates: [98.6766563, 3.5753762] }
+    },
+    {
+      type: "Feature",
+      properties: {
+        nama: "Rumkit Tk. II Putri Hijau (Kesdam I/BB)",
+        kategori: "Kesehatan",
+        alamat: "Jl. Putri Hijau No. 17, Kesawan, Kec. Medan Barat",
+        sumber: "Wikipedia: List of colonial buildings in Medan (koordinat); alamat dari Kemenkes (19 November 2026)"
+      },
+      geometry: { type: "Point", coordinates: [98.672778, 3.599722] }
+    },
 
-    // --- KATEGORI: PENDIDIKAN (4) ---
+    // --- KATEGORI: PENDIDIKAN (5) ---
     {
       type: "Feature",
       properties: {
@@ -58,7 +78,7 @@ const dataFasilitas = {
         alamat: "Jl. Dr. T. Mansur No. 9, Padang Bulan, Kec. Medan Baru",
         sumber: "Google Maps & OpenStreetMap (17 November 2026)"
       },
-      geometry: { type: "Point", coordinates: [98.6563, 3.5653] }
+      geometry: { type: "Point", coordinates: [98.6568033, 3.5613218] }
     },
     {
       type: "Feature",
@@ -66,9 +86,9 @@ const dataFasilitas = {
         nama: "Politeknik Negeri Medan (Polmed)",
         kategori: "Pendidikan",
         alamat: "Jl. Almamater No. 1, Padang Bulan, Kec. Medan Baru",
-        sumber: "Google Maps & OpenStreetMap (17 November 2026)"
+        sumber: "OpenStreetMap way/289102197 (19 November 2026)"
       },
-      geometry: { type: "Point", coordinates: [98.6548, 3.5638] }
+      geometry: { type: "Point", coordinates: [98.6535839, 3.5632759] }
     },
     {
       type: "Feature",
@@ -76,7 +96,7 @@ const dataFasilitas = {
         nama: "SMA Negeri 1 Medan",
         kategori: "Pendidikan",
         alamat: "Jl. Teuku Cik Ditiro No. 1, Madras Hulu, Kec. Medan Polonia",
-        sumber: "Google Maps & OpenStreetMap (17 November 2026)"
+        sumber: "OpenStreetMap way/28896327 (19 November 2026)"
       },
       geometry: { type: "Point", coordinates: [98.6723, 3.5847] }
     },
@@ -90,8 +110,18 @@ const dataFasilitas = {
       },
       geometry: { type: "Point", coordinates: [98.7165, 3.6083] }
     },
+    {
+      type: "Feature",
+      properties: {
+        nama: "Universitas HKBP Nommensen (UHN)",
+        kategori: "Pendidikan",
+        alamat: "Jl. Sutomo No. 4A, Perintis, Kec. Medan Timur",
+        sumber: "Wikipedia: Nommensen HKBP University (koordinat); alamat dari profil kampus (19 November 2026)"
+      },
+      geometry: { type: "Point", coordinates: [98.68125, 3.596472] }
+    },
 
-    // --- KATEGORI: RUANG TERBUKA (4) ---
+    // --- KATEGORI: RUANG TERBUKA (5) ---
     {
       type: "Feature",
       properties: {
@@ -100,7 +130,7 @@ const dataFasilitas = {
         alamat: "Jl. Pulau Pinang, Kesawan, Kec. Medan Barat",
         sumber: "Google Maps & OpenStreetMap (17 November 2026)"
       },
-      geometry: { type: "Point", coordinates: [98.6773, 3.5914] }
+      geometry: { type: "Point", coordinates: [98.6786611, 3.5903166] }
     },
     {
       type: "Feature",
@@ -108,7 +138,7 @@ const dataFasilitas = {
         nama: "Taman Ahmad Yani",
         kategori: "Ruang Terbuka",
         alamat: "Jl. Imam Bonjol, Jati, Kec. Medan Maimun",
-        sumber: "Google Maps & OpenStreetMap (17 November 2026)"
+        sumber: "OpenStreetMap way/963564001 (19 November 2026)"
       },
       geometry: { type: "Point", coordinates: [98.6766, 3.5776] }
     },
@@ -132,8 +162,18 @@ const dataFasilitas = {
       },
       geometry: { type: "Point", coordinates: [98.6838, 3.5752] }
     },
+    {
+      type: "Feature",
+      properties: {
+        nama: "Taman Sri Deli",
+        kategori: "Ruang Terbuka",
+        alamat: "Jl. Sisingamangaraja (Jl. Masjid Raya), Kec. Medan Kota",
+        sumber: "Wikipedia: List of colonial buildings in Medan (koordinat); alamat dari detikSumut (19 November 2026)"
+      },
+      geometry: { type: "Point", coordinates: [98.686667, 3.576389] }
+    },
 
-    // --- KATEGORI: TRANSPORTASI (3) ---
+    // --- KATEGORI: TRANSPORTASI (4) ---
     {
       type: "Feature",
       properties: {
@@ -142,7 +182,7 @@ const dataFasilitas = {
         alamat: "Jl. Stasiun Kereta Api No. 1, Kesawan, Kec. Medan Barat",
         sumber: "Google Maps & OpenStreetMap (17 November 2026)"
       },
-      geometry: { type: "Point", coordinates: [98.6798, 3.5912] }
+      geometry: { type: "Point", coordinates: [98.6785069, 3.5931992] }
     },
     {
       type: "Feature",
@@ -163,6 +203,76 @@ const dataFasilitas = {
         sumber: "Google Maps & OpenStreetMap (17 November 2026)"
       },
       geometry: { type: "Point", coordinates: [98.5993, 3.5867] }
+    },
+    {
+      type: "Feature",
+      properties: {
+        nama: "Pelabuhan Belawan",
+        kategori: "Transportasi",
+        alamat: "Pelabuhan Belawan, Kec. Medan Belawan",
+        sumber: "Wikipedia: Port of Belawan (koordinat titik pelabuhan) (19 November 2026)"
+      },
+      geometry: { type: "Point", coordinates: [98.690556, 3.783056] }
+    },
+    {
+      type: "Feature",
+      properties: { nama: "Royal Maternity General Hospital", kategori: "Kesehatan", alamat: "(alamat belum tercatat di OSM - isi manual)", sumber: "OpenStreetMap way/962091719 (19 November 2026)" },
+      geometry: { type: "Point", coordinates: [98.6560112, 3.5805665] }
+    },
+    {
+      type: "Feature",
+      properties: { nama: "Prima Vision Eye Hospital", kategori: "Kesehatan", alamat: "(alamat belum tercatat di OSM - isi manual)", sumber: "OpenStreetMap node/9800500297 (19 November 2026)" },
+      geometry: { type: "Point", coordinates: [98.6594963, 3.5983989] }
+    },
+    {
+      type: "Feature",
+      properties: { nama: "Jewel Park", kategori: "Ruang Terbuka", alamat: "(alamat belum tercatat di OSM - isi manual)", sumber: "OpenStreetMap way/1057918593 (19 November 2026)" },
+      geometry: { type: "Point", coordinates: [98.6647283, 3.5625484] }
+    },
+    {
+      type: "Feature",
+      properties: { nama: "Avros Education Park", kategori: "Ruang Terbuka", alamat: "(alamat belum tercatat di OSM - isi manual)", sumber: "OpenStreetMap way/1057832141 (19 November 2026)" },
+      geometry: { type: "Point", coordinates: [98.683558, 3.555837] }
+    },
+    {
+      type: "Feature",
+      properties: { nama: "Gajah Mada Park", kategori: "Ruang Terbuka", alamat: "(alamat belum tercatat di OSM - isi manual)", sumber: "OpenStreetMap way/316746852 (19 November 2026)" },
+      geometry: { type: "Point", coordinates: [98.6588633, 3.5841641] }
+    },
+    {
+      type: "Feature",
+      properties: { nama: "Aksara Park", kategori: "Ruang Terbuka", alamat: "(alamat belum tercatat di OSM - isi manual)", sumber: "OpenStreetMap way/288729547 (19 November 2026)" },
+      geometry: { type: "Point", coordinates: [98.7057557, 3.5970978] }
+    },
+    {
+      type: "Feature",
+      properties: { nama: "Polonia Sky Park", kategori: "Ruang Terbuka", alamat: "(alamat belum tercatat di OSM - isi manual)", sumber: "OpenStreetMap way/1058059237 (19 November 2026)" },
+      geometry: { type: "Point", coordinates: [98.6783049, 3.5715311] }
+    },
+    {
+      type: "Feature",
+      properties: { nama: "Brayan Food Park", kategori: "Ruang Terbuka", alamat: "(alamat belum tercatat di OSM - isi manual)", sumber: "OpenStreetMap way/998320215 (19 November 2026)" },
+      geometry: { type: "Point", coordinates: [98.6683128, 3.6270232] }
+    },
+    {
+      type: "Feature",
+      properties: { nama: "Ismud Park", kategori: "Ruang Terbuka", alamat: "(alamat belum tercatat di OSM - isi manual)", sumber: "OpenStreetMap node/4365004509 (19 November 2026)" },
+      geometry: { type: "Point", coordinates: [98.6611245, 3.5879276] }
+    },
+    {
+      type: "Feature",
+      properties: { nama: "Central Park Zoo & Resort", kategori: "Ruang Terbuka", alamat: "(alamat belum tercatat di OSM - isi manual)", sumber: "OpenStreetMap way/1044506992 (19 November 2026)" },
+      geometry: { type: "Point", coordinates: [98.5975313, 3.4522492] }
+    },
+    {
+      type: "Feature",
+      properties: {
+        nama: "Savatthi Buddhist Center",
+        kategori: "Ruang Terbuka",
+        alamat: "(alamat belum tercatat di OSM - isi manual)",
+        sumber: "OpenStreetMap node/13587091326 (19 November 2026)"
+      },
+      geometry: { type: "Point", coordinates: [98.6915724, 3.5273505] }
     }
   ]
 };

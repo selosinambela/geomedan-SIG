@@ -23,30 +23,51 @@
     </div>
   </section>
 
-  <header>
-    <h1>Peta Fasilitas Publik dan Ruang Terbuka Kota Medan</h1>
-    <p>Mendukung SDG 11 (kota berkelanjutan) dan SDG 9 (infrastruktur dan inovasi digital)</p>
+  <header class="app-header">
+    <div>
+      <p class="app-kicker">GEOMEDAN · SIG WEB</p>
+      <h1>Peta Fasilitas Publik Kota Medan</h1>
+      <p>Mendukung SDG 11 dan SDG 9 melalui data spasial terbuka</p>
+    </div>
+    <button type="button" id="btnSidebar" class="header-action" aria-expanded="true" aria-controls="sidebar">☰ <span>Panel data</span></button>
   </header>
 
   <main>
     <div id="map" role="region" aria-label="Peta interaktif fasilitas publik Kota Medan"></div>
+
+    <aside id="sidebar" class="sidebar" aria-label="Panel eksplorasi data">
+      <div class="sidebar-head">
+        <div><span class="eyebrow">EKSPLORASI DATA</span><h2>Fasilitas Medan</h2></div>
+        <button type="button" id="btnCloseSidebar" class="icon-button" aria-label="Tutup panel">×</button>
+      </div>
+      <label class="search-box"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Cari nama atau alamat..." autocomplete="off"><button id="btnClearSearch" type="button" aria-label="Hapus pencarian">×</button></label>
+      <div class="stats" aria-label="Ringkasan data">
+        <div><strong id="statVisible">31</strong><span>ditampilkan</span></div>
+        <div><strong id="statCategories">4</strong><span>kategori</span></div>
+        <div><strong id="statTotal">31</strong><span>total data</span></div>
+      </div>
+      <div class="section-title"><span>Filter kategori</span><button id="btnReset" type="button" class="text-button">Reset</button></div>
+      <div id="categoryFilters" class="category-filters"></div>
+      <div class="sidebar-divider"></div>
+      <div class="section-title"><span>Daftar fasilitas</span><span id="resultLabel" class="result-label">31 hasil</span></div>
+      <div id="facilityList" class="facility-list"></div>
+      <p class="data-note">Sumber data: OpenStreetMap dan verifikasi nama/lokasi melalui situs resmi. Terakhir diperbarui 19 November 2026.</p>
+      <div class="sidebar-actions">
+        <p id="info" role="status" aria-live="polite">Klik titik di peta untuk melihat detail.</p>
+        <div class="sidebar-tools">
+          <button type="button" data-mode="lihat" class="aktif" aria-pressed="true">Lihat detail</button>
+          <button type="button" data-mode="jarak" aria-pressed="false">Ukur jarak</button>
+          <button type="button" data-mode="luas" aria-pressed="false">Ukur luas</button>
+          <button type="button" id="btnLokasi">⌖ Lokasi saya</button>
+          <button type="button" id="btnBersihkan">Bersihkan peta</button>
+        </div>
+      </div>
+    </aside>
   </main>
 
-  <section class="panel" aria-label="Kontrol peta">
-    <div class="grup" role="group" aria-label="Mode interaksi peta">
-      <button type="button" data-mode="lihat" class="aktif" aria-pressed="true">Lihat detail</button>
-      <button type="button" data-mode="jarak" aria-pressed="false">Ukur jarak</button>
-      <button type="button" data-mode="luas" aria-pressed="false">Ukur luas</button>
-    </div>
-    <div class="grup">
-      <button type="button" id="btnLokasi">Lokasi saya dan terdekat</button>
-      <button type="button" id="btnBersihkan">Bersihkan</button>
-    </div>
-    <p id="info" role="status" aria-live="polite">Klik titik di peta untuk melihat detail.</p>
-  </section>
 
   <footer>
-    Data: 15 Fasilitas Publik Kota Medan (Google Maps &amp; OpenStreetMap)<br>
+    Data: 31 fasilitas publik Kota Medan · OpenStreetMap &amp; sumber resmi<br>
     Basemap: OpenStreetMap, CARTO, Esri · Dibuat oleh Vaidon Shello Sinambela · 241712052 · Pengembangan SIG Web
   </footer>
 
